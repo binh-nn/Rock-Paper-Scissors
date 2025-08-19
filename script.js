@@ -1,3 +1,31 @@
+function playRound (humanChoice, computerChoice) {
+    let humanPick = humanChoice.toLowerCase();
+    let computerPick = computerChoice.toLowerCase();
+
+    // Condition to check for humanPick vs computerPick
+    if (humanPick === computerPick) {
+        console.log("TIE!");
+    } else if ((humanPick === "paper") && (computerPick === "rock")) {
+        console.log("You win! Paper beats Rock.");
+        humanScore++;
+    } else if ((humanPick === "rock") && (computerPick === "paper")) {
+        console.log("You lose! Paper beats Rock.");
+        computerScore++;
+    } else if ((humanPick === "rock") && (computerPick === "scissors")) {
+        console.log("You win! Rock beats Scissors.");
+        humanScore++;
+    } else if ((humanPick === "scissors") && (computerPick === "rock")) {
+        console.log("You lose! Rock beats Scissors");
+        computerScore++;
+    } else if ((humanPick === "scissors") && (computerPick === "paper")) {
+        console.log("You win! Scissors beats Paper.");
+        humanScore++;
+    } else if ((humanPick === "paper") && (computerPick === "scissors")) {
+        console.log("You lose! Scissors beats Paper");
+        computerScore++;
+    }
+}
+
 function getComputerChoice () {
     // Generates number that will correlate to the choice
     let choice = Math.floor(Math.random() * 3);
@@ -17,5 +45,10 @@ function getHumanChoice() {
     return choice;
 }
 
-console.log(getComputerChoice());
-console.log(getHumanChoice());
+let humanScore = 0;
+let computerScore = 0;
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
