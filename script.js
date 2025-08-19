@@ -1,3 +1,19 @@
+function playGame () {
+    for (let i = 1; i <= 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
+
+    if (humanScore === computerScore) {
+        console.log("The game is tied!");
+    } else if (humanScore > computerScore) {
+        console.log("You won the game!");
+    } else {
+        console.log("You lost the game!");
+    }
+}
+
 function playRound (humanChoice, computerChoice) {
     let humanPick = humanChoice.toLowerCase();
     let computerPick = computerChoice.toLowerCase();
@@ -48,7 +64,6 @@ function getHumanChoice() {
 let humanScore = 0;
 let computerScore = 0;
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+playGame();
 
-playRound(humanSelection, computerSelection);
+console.log(humanScore + " - " + computerScore);
